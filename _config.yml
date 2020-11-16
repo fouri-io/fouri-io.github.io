@@ -14,13 +14,13 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Fouri.io
-subtitle: Colby Ward's Blog
+subtitle: Colby Ward's Weblog on building scalable and robust software
 email: colby@fouri.io
 description: >- # this means to ignore newlines until "baseurl:"
   Colby Ward's Weblog on building scalable and robust software
 twitter_username: colbyatx
 github_username: fouri-io
-minimal_mistakes_skin: contrast
+minimal_mistakes_skin: "dark"
 search: true
 repository: "fouri-io/fouri-io.github.io"
 
@@ -65,9 +65,9 @@ author:
   avatar : "/assets/images/profile-sepia.png"
   bio    : "SDM - Amazon.com"
   links:
-    - label: "Website"
+    - label: "Fouri.io"
       icon: "fas fa-fw fa-link"
-      url: "https://"
+      url: "https://www.fouri.io"
     - label: "@colbyatx"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/colbyatx"
