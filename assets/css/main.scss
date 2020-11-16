@@ -6,13 +6,8 @@
 
 $link-color:red;
 
-.page__content {
-    p,
-    li,
-    dl {
-        font-size: .6em;
-    }
-}
+$type-size-4: .6em;
+$type-size-6: 2em;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
