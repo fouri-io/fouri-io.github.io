@@ -13,6 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+
+# Notes
+# Site forked from: https://github.com/mmistakes/mm-github-pages-starter
+# Configuration Guide: https://mmistakes.github.io/minimal-mistakes/
 title: Fouri.io
 subtitle: Colby Ward's Weblog on building scalable and robust software
 email: colby@fouri.io
@@ -20,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Colby Ward's Weblog on building scalable and robust software
 twitter_username: colbyatx
 github_username: fouri-io
-minimal_mistakes_skin: "dark"
+minimal_mistakes_skin: "default"
 search: true
 repository: "fouri-io/fouri-io.github.io"
 
