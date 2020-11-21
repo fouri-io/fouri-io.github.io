@@ -1,14 +1,12 @@
 # Colby TODO
-- Get a Jekyll build running site locally
 - Create development branch for WIP
-- Enable Comments
 
 # Colby Notes
 **Run Locally**
 1. Install Jekyll/Ruby/Bundler
 2. Bundler is a dependency manager for Ruby gems - Run `bundler install`
 3. Do a build `bundle exec jekyll build`
-4. Run the local server `bundle exec jekyll serve`
+4. Run the local server `bundle exec jekyll serve --livereload`
 5. View the site: `http://localhost:4000/`
 
 # Minimal Mistakes remote theme starter
