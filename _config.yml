@@ -18,15 +18,16 @@
 # Site forked from: https://github.com/mmistakes/mm-github-pages-starter
 # Configuration Guide: https://mmistakes.github.io/minimal-mistakes/
 title: Fouri.io
-subtitle: Colby Ward's Weblog on building scalable and robust software
+subtitle: Colby Ward's blog on building scalable and robust software
 email: colby@fouri.io
 description: >- # this means to ignore newlines until "baseurl:"
-  Colby Ward's Weblog on building scalable and robust software
+  Colby Ward's blog on building scalable and robust software
 twitter_username: colbyatx
 github_username: fouri-io
 minimal_mistakes_skin: "default"
 search: true
 repository: "fouri-io/fouri-io.github.io"
+url: "https://www.fouri.io"
 
 # Build settings
 markdown: kramdown
@@ -78,6 +79,11 @@ author:
     - label: "fouri-io"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/fouri-io"
+
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "fouri"
 
 footer:
   links:

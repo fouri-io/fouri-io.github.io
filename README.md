@@ -3,6 +3,14 @@
 - Create development branch for WIP
 - Enable Comments
 
+# Colby Notes
+**Run Locally**
+1. Install Jekyll/Ruby/Bundler
+2. Bundler is a dependency manager for Ruby gems - Run `bundler install`
+3. Do a build `bundle exec jekyll build`
+4. Run the local server `bundle exec jekyll serve`
+5. View the site: `http://localhost:4000/`
+
 # Minimal Mistakes remote theme starter
 
 Click [**Use this template**](https://github.com/mmistakes/mm-github-pages-starter/generate) button above for the quickest method of getting started with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).

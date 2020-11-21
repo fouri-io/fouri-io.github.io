@@ -1,6 +1,7 @@
 ---
 title: "Scale rapidly with AWS CDK"
 date: 2020-11-21T09:22:30-06:00
+comments: true
 categories:
   - scale
 tags:
