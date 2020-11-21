@@ -7,7 +7,7 @@ tags:
   - aws
   - cdk
 ---
-![Photo by Roman Kraft on Unsplash](/assets/images/scale-image-roman-kraft-RtDwtRDvYQg-unsplash.png)
+![Photo by Roman Kraft on Unsplash](/assets/images/scale-image-roman-kraft-RtDwtRDvYQg-unsplash.jpg)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet eros sapien, at iaculis leo feugiat vel. Aliquam at convallis nunc. Nulla sagittis feugiat metus, at scelerisque sem. Maecenas non purus sed magna faucibus ornare. Proin nec dictum odio, quis ullamcorper lectus. Aenean aliquam sapien id justo egestas, non ultrices dui posuere. Nam condimentum lorem sem, in semper leo tristique at. Duis id ligula diam.
 
