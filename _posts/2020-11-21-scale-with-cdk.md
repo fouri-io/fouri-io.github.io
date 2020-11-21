@@ -11,9 +11,6 @@ tags:
 ![Photo by Roman Kraft on Unsplash](/assets/images/scale-image-roman-kraft-RtDwtRDvYQg-unsplash.jpg)
 *<span>Photo by <a href="https://unsplash.com/@romankraft?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Roman Kraft</a> on <a href="https://unsplash.com/s/photos/scale?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>*
 
-### Colby BIG DEV CHANGE HERE
-*Testing changes to the dev branch to ensure jekyll doesn't publish*
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet eros sapien, at iaculis leo feugiat vel. Aliquam at convallis nunc. Nulla sagittis feugiat metus, at scelerisque sem. Maecenas non purus sed magna faucibus ornare. Proin nec dictum odio, quis ullamcorper lectus. Aenean aliquam sapien id justo egestas, non ultrices dui posuere. Nam condimentum lorem sem, in semper leo tristique at. Duis id ligula diam.
 
 Nam rhoncus mollis varius. Duis consequat odio vel diam sodales accumsan. Duis tincidunt, mi a elementum laoreet, lorem diam placerat arcu, eget fermentum lectus eros id massa. Nam non erat a odio placerat venenatis in sed magna. Etiam euismod pellentesque lobortis. Integer quis feugiat nisi. Etiam dapibus, arcu at tempor sodales, mauris justo faucibus lorem, non volutpat diam elit id odio. Vestibulum viverra nisl nibh, a tincidunt lorem consequat non. Maecenas non dignissim mi. Fusce hendrerit elit non purus malesuada, vel laoreet tellus viverra. Curabitur posuere, ante non blandit malesuada, libero velit finibus lectus, non facilisis felis purus in velit. Vestibulum nec rhoncus diam, eget ornare enim. Vivamus aliquam pulvinar purus sit amet fermentum. Maecenas elementum et elit ut convallis. Suspendisse sed mi quis diam sollicitudin venenatis et a diam.

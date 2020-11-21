@@ -1,5 +1,8 @@
 # Colby TODO
-- Create development branch for WIP
+- Write a few blogs
+- Play with Splash page
+- Update profile pic
+- create logo
 
 # Colby Notes
 **Run Locally**
