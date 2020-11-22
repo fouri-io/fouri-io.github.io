@@ -1,5 +1,5 @@
 ---
-title: "Scale rapidly with AWS CDK"
+title: "Reducing Time to Market with AWS CDK"
 date: 2020-11-21T09:22:30-06:00
 comments: true
 categories:
@@ -9,7 +9,16 @@ tags:
   - cdk
 ---
 ![Photo by Roman Kraft on Unsplash](/assets/images/scale-image-roman-kraft-RtDwtRDvYQg-unsplash.jpg)
-*<span>Photo by <a href="https://unsplash.com/@romankraft?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Roman Kraft</a> on <a href="https://unsplash.com/s/photos/scale?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>*
+
+### Outline
+- Give background of Devops revolution with cloud, containers, and new kingmakers
+- Talk about AWS console being a great mechanism for proof-of-concepts, but adding VPCs, subnets, gateways quickly makes this problematic for replication or separating environments (dev/uat/prod)
+- Security - everyones responsibility, pipelines feeding multiple accounts (best practices)
+- CloudFormation allows for a file to be scripted to solve these issues, but requires every attribute to work. Although solves replication, it will slow down infrastructure launch.
+- Along comes AWS Cloud Development Kit and its big bad self.  It swaggers past you and throws a wink.
+- Show architecture of the ECS/VPC pattern used for Fourmeal
+- Give 5 minute deploy of API with github repo
+
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet eros sapien, at iaculis leo feugiat vel. Aliquam at convallis nunc. Nulla sagittis feugiat metus, at scelerisque sem. Maecenas non purus sed magna faucibus ornare. Proin nec dictum odio, quis ullamcorper lectus. Aenean aliquam sapien id justo egestas, non ultrices dui posuere. Nam condimentum lorem sem, in semper leo tristique at. Duis id ligula diam.
 
