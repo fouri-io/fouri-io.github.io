@@ -1,8 +1,13 @@
 # Colby TODO
-- Write a few blogs
-- Play with Splash page
+**LAUNCH 1/01/2021**
+- Update About Page
+- Update tags, categories -- define strategy
+- Write 3 blogs as starting point
+- Create logo
 - Update profile pic
-- create logo
+- Play with Splash page
+- Add LinkedIn
+
 
 # Colby Notes
 **Run Locally**

@@ -159,6 +159,7 @@
 
 .author__name {
   margin: 0;
+  
 
   @include breakpoint($large) {
     margin-top: 10px;
@@ -166,16 +167,26 @@
   }
 }
 .sidebar .author__name {
-  font-family: $sans-serif;
+  font-family: proxima-nova, proxima-nova-1, proxima-nova-2, HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: $type-size-5;
+  font-style: bold;
+
+  
 }
 
 .author__bio {
   margin: 0;
+  font-size: $type-size-6;
 
   @include breakpoint($large) {
     margin-top: 10px;
     margin-bottom: 20px;
+  }
+
+  span {
+    color: black;
+    font-size: $type-size-7;
+    font-style: italic;
   }
 }
 
