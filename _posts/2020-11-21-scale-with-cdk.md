@@ -8,25 +8,30 @@ tags:
   - aws
   - cdk
 ---
-![Photo by Roman Kraft on Unsplash](/assets/images/scale-image-roman-kraft-RtDwtRDvYQg-unsplash.jpg)
+![Photo by Roman Kraft on Unsplash](/assets/images/scale-image-roman-kraft-edited.jpg)
 
-### Outline
-- Give background of Devops revolution with cloud, containers, and new kingmakers
-- Talk about AWS console being a great mechanism for proof-of-concepts, but adding VPCs, subnets, gateways quickly makes this problematic for replication or separating environments (dev/uat/prod)
-- Security - everyones responsibility, pipelines feeding multiple accounts (best practices)
-- CloudFormation allows for a file to be scripted to solve these issues, but requires every attribute to work. Although solves replication, it will slow down infrastructure launch.
-- Along comes AWS Cloud Development Kit and its big bad self.  It swaggers past you and throws a wink.
-- Show architecture of the ECS/VPC pattern used for Fourmeal
-- Give 5 minute deploy of API with github repo
+Times have certainly changed in software development over the past fifteen years. The days of filing IT tickets to provision a server or create a database table, followed by waiting, waiting some more, and (you guessed it) waiting again are largely gone. Cloud computing and [containerizaiton](https://www.docker.com/resources/what-container) have resulted in a pardigmn shift, moving Operational IT chips to the development side of the table --aka DevOps. Developers really are the new [Kingmakers](https://www.activestate.com/blog/developers-new-kingmakers/) by shaping reality to fit their narrative.
+
+With this great power does come great responsiblity and thankfully AWS is there to help. The AWS console will allow users to rapidly provision servers, databases, apis, and much more. But when building beyond a proof-of-concept the challenges with console administration quickly become apparent. Consider the following:
+1. What happens if I need to replicate this configuration?
+2. How do I build UAT or Dev environments?
+3. How do I track infrastructure changes --i.e. version my infrastructure?
+4. ... and the list goes on
+
+### Along comes the Blue Pill - CloudFormation
+
+Thankfully, AWS came to the rescue again with [CloudFormation](https://aws.amazon.com/cloudformation/). This Infrastructure-As-Code allows developers to declare infrastructure in JSON or YAML files and use your favorite version control (e.g. git, subversion) to manage changes. It essentially solves all of the problems listed above. "Great Colby, what about this CDK thing? You should rename the title." Ok, Ok, I'm getting there, show some patience. Although CloudFormation works, it is incredibly dense/verbose/structured. Every piece of infrastructure, accounts, security groups need to be hand-bombed in. When the architecture starts to complicate: private VPCs, Subnets, Internet Gateways, and NATS, this can become a daunting task quickly. A lot of hours/days/weeks have been spent tuning CloudFormation scripts. 
+
+Just when you have tweaked your 8000 line CloudFormation masterpiece, AWS Cloud Development Kit (CDK) comes strolling along with its big, bad, self giving you a rakish wink as it passes on its way to brevity and the future. You may be asking yourself "I am good with CloudFormation, why should I switch, besides it works." My answer is simple: assembly language works, some people are good at it, but there are faster/easier ways to build software, and unlike you oh-contrarion-complainy-one, the world values time-to-market and maintainability. In fact, Cloudformation is an output of CDK, just like assemby is to Java or C. Now that I have convinced you, lets talk CDK.
+
+### Take the Red Pill - CDK
+
+Introduce the following architecture.  Show Diagram. Describe the complexity.
+
+This can be accomplished with the following:
 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet eros sapien, at iaculis leo feugiat vel. Aliquam at convallis nunc. Nulla sagittis feugiat metus, at scelerisque sem. Maecenas non purus sed magna faucibus ornare. Proin nec dictum odio, quis ullamcorper lectus. Aenean aliquam sapien id justo egestas, non ultrices dui posuere. Nam condimentum lorem sem, in semper leo tristique at. Duis id ligula diam.
+### Deep in the Rabbit Hole
 
-Nam rhoncus mollis varius. Duis consequat odio vel diam sodales accumsan. Duis tincidunt, mi a elementum laoreet, lorem diam placerat arcu, eget fermentum lectus eros id massa. Nam non erat a odio placerat venenatis in sed magna. Etiam euismod pellentesque lobortis. Integer quis feugiat nisi. Etiam dapibus, arcu at tempor sodales, mauris justo faucibus lorem, non volutpat diam elit id odio. Vestibulum viverra nisl nibh, a tincidunt lorem consequat non. Maecenas non dignissim mi. Fusce hendrerit elit non purus malesuada, vel laoreet tellus viverra. Curabitur posuere, ante non blandit malesuada, libero velit finibus lectus, non facilisis felis purus in velit. Vestibulum nec rhoncus diam, eget ornare enim. Vivamus aliquam pulvinar purus sit amet fermentum. Maecenas elementum et elit ut convallis. Suspendisse sed mi quis diam sollicitudin venenatis et a diam.
 
-Etiam in ante erat. Fusce nec maximus justo, vitae luctus lorem. Vestibulum nisi quam, faucibus in erat vel, congue pellentesque risus. Maecenas et vestibulum libero. Quisque finibus iaculis quam sed interdum. Cras ornare, felis a condimentum porttitor, dui tellus semper magna, eget volutpat purus mi sit amet est. In ullamcorper blandit diam. Ut placerat bibendum dui, eu cursus ligula tincidunt sagittis. Nullam nec molestie neque, ac convallis ipsum.
-
-Sed accumsan lectus eget ex consequat sodales. Nam non finibus felis, eget sagittis nulla. Maecenas rhoncus odio vitae erat iaculis porttitor. Curabitur tincidunt tincidunt convallis. Aliquam tempus nibh non dolor consectetur, non pharetra lectus posuere. Pellentesque id lacus porta, auctor magna malesuada, pharetra sem. Etiam at sollicitudin diam. Duis non auctor elit, ut hendrerit ante. Donec sit amet lorem non nibh tristique scelerisque vitae ut velit. Vestibulum ac posuere eros. Ut vel sagittis augue.
-
-Duis tempor, augue ac auctor pharetra, leo ex porttitor lorem, a finibus neque felis ac sapien. Sed id erat quis turpis varius vehicula eget et enim. Vestibulum a sagittis nulla. Nullam pharetra dolor massa, vitae scelerisque nibh lobortis quis. In sollicitudin varius nisi, non feugiat elit tincidunt non. Fusce convallis vel nunc vel efficitur. Donec rhoncus arcu vel lacinia blandit. Curabitur libero magna, egestas in tempus eget, malesuada vel purus. Sed id turpis vel eros sagittis sagittis sit amet id ante. Morbi consequat, libero sed sodales rutrum, nisl leo lacinia mauris, at fringilla eros urna ac turpis.
 
