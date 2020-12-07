@@ -8,6 +8,16 @@ tags:
   - aws
   - cdk
 ---
+
+//**************TODO**********//
+- Fix diagram cropping
+- Add explanation of contstructs
+- Add instructions on how to do on own and links to github
+- Add the next Blog post on ECS Service Extensions
+- Cleanup Readme
+- Fix Profile Pic
+- Add LinkedIn to Profile
+
 ![Photo by Kevin Ku on Unsplash](/assets/images/kevin-ku-aiyBwbrWWlo-unsplash-fouri.jpg)
 
 Times have certainly changed in software development over the past fifteen years. The days of filing IT tickets to provision a server, followed by waiting, waiting some more, and (you guessed it) waiting again are largely gone. Cloud computing and [containerization](https://www.docker.com/resources/what-container) have resulted in a pardigmn shift, sliding the Operational IT chips to the development side of the table --aka DevOps. Developers really are the new [Kingmakers](https://www.activestate.com/blog/developers-new-kingmakers/) by shaping reality to fit their narrative.
@@ -43,7 +53,7 @@ A good overview can be taken from the [AWS docs](https://aws.amazon.com/cdk/):
 
 *"Great, great, but what does all that really mean to me?"* 
 
-It is easiest to explain by outlining a real-world problem with CDK flexing its power to solve all your problems (well maybe not all  --you are pretty screwed up). Let me present this common architecture pattern solving the following use-cases
+It is easiest to explain by outlining a real-world problem with CDK, flexing its power to solve all your problems (well maybe not all  --you are pretty screwed up). Let me present this common architecture pattern solving the following use-cases
 1. Launch a micro-service hosted in a container
 2. I would like it to be serverless -- i.e. I don't want to manage servers
 3. I want to control traffic by isolating my service from the public internet -- i.e. Private VPN
@@ -56,9 +66,56 @@ Curtain call *Skynet* a fully available, replicated, isolated, container service
 
 Humblebrag - I can provision this in X lines of code versus the Y lines it would take in CloudFormation. I can actually do it in even less with the very recent introduction of ECS Service Extenstions, but I will save that for another day/blog.
 
-TODO - Architecture Diagram here
+![Application Load Balanced Fargate Architecture](/assets/images/applicationloadbalancedfargate.png)
 
-TODO - Show the code that can accomplish
+Now let's take a look at the code to accomplish this.
+```java
+// The code that defines your stack goes here
+const vpc = new ec2.Vpc(this, "FouriVPC", {
+  maxAzs: 3, // Default is all AZs in region
+  cidr: "10.0.0.0/24"
+});
+
+const cluster = new ecs.Cluster(this, "SkynetCluster", {
+  vpc: vpc,
+  clusterName: "skynet-demo"
+});
+
+  // Create a role where permissions can be granted
+const taskRole = new iam.Role(this, "SkynetTaskWorkerRole", {
+  assumedBy: new iam.ServicePrincipal("ecs-tasks.amazonaws.com"),
+});
+
+// Create a load-balanced Fargate service and make it public
+new ecs_patterns.ApplicationLoadBalancedFargateService(this, "SkynetFargateService", {
+  cluster: cluster, // Required
+  cpu: 512, // Default is 256
+  desiredCount: 6, // Default is 1
+  taskImageOptions: { 
+    image: ecs.ContainerImage.fromRegistry("fouri/skynet"),
+    containerName: "skynet-container",
+    enableLogging: true,
+    taskRole: taskRole,
+    containerPort: 4000
+  },
+  memoryLimitMiB: 2048, // Default is 512
+  publicLoadBalancer: true, // Default is false
+  listenerPort: 4000
+});
+
+// Build DynamoDB Infrastructure
+const tableName = 'skynet';
+
+const table =  new dynamodb.Table(this, "SkynetTable", {
+    tableName,
+    partitionKey: { name: 'pk', type: dynamodb.AttributeType.STRING },
+    sortKey: { name: 'sk', type: dynamodb.AttributeType.STRING },
+    removalPolicy: cdk.RemovalPolicy.DESTROY
+});
+
+table.grantReadWriteData(taskRole);
+```
+
 
 TODO - Explain constructs and patterns
 
