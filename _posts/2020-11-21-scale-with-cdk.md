@@ -3,20 +3,15 @@ title: "Reducing Time to Market with AWS CDK"
 date: 2020-11-21T09:22:30-06:00
 comments: true
 categories:
-  - scale
+  - development
 tags:
   - aws
   - cdk
 ---
 
 //**************TODO**********//
-- Fix diagram cropping
-- Add explanation of contstructs
-- Add instructions on how to do on own and links to github
-- Add the next Blog post on ECS Service Extensions
-- Cleanup Readme
+- Add explanation of constructs
 - Fix Profile Pic
-- Add LinkedIn to Profile
 
 ![Photo by Kevin Ku on Unsplash](/assets/images/kevin-ku-aiyBwbrWWlo-unsplash-fouri.jpg)
 
@@ -47,9 +42,7 @@ My answer is simple: assembly language works, some people are good at it, but th
 
 ### Take the Red Pill - CDK
 A good overview can be taken from the [AWS docs](https://aws.amazon.com/cdk/): 
-> The AWS Cloud Development Kit (AWS CDK) is an open source software development framework to define your cloud application resources using familiar programming languages.
-
-> Provisioning cloud applications can be a challenging process that requires you to perform manual actions, write custom scripts, maintain templates, or learn domain-specific languages. AWS CDK uses the familiarity and expressive power of programming languages for modeling your applications. It provides you with high-level components called constructs that preconfigure cloud resources with proven defaults, so you can build cloud applications without needing to be an expert. AWS CDK provisions your resources in a safe, repeatable manner through AWS CloudFormation. It also enables you to compose and share your own custom constructs that incorporate your organization's requirements, helping you start new projects faster.
+> The AWS Cloud Development Kit (AWS CDK) is an open source software development framework to define your cloud application resources using familiar programming languages. Provisioning cloud applications can be a challenging process that requires you to perform manual actions, write custom scripts, maintain templates, or learn domain-specific languages. AWS CDK uses the familiarity and expressive power of programming languages for modeling your applications. It provides you with high-level components called constructs that preconfigure cloud resources with proven defaults, so you can build cloud applications without needing to be an expert. AWS CDK provisions your resources in a safe, repeatable manner through AWS CloudFormation. It also enables you to compose and share your own custom constructs that incorporate your organization's requirements, helping you start new projects faster.
 
 *"Great, great, but what does all that really mean to me?"* 
 
@@ -116,14 +109,45 @@ const table =  new dynamodb.Table(this, "SkynetTable", {
 table.grantReadWriteData(taskRole);
 ```
 
+"But I want to have something I can launch REALLY quickly, can't you just give it to me? Gimme, Gimme, Gimme"  Okay, okay, you paid your dues even though you act like a child, follow below to get this infrastructure launched with about five minutes of work.
+### Try it on your own
+You need to have some prerequisites ready : AWS Account with infrastructure building permissions, AWS CLI, CDK, git (Check 'Other Resources' below for help getting these working)
 
-TODO - Explain constructs and patterns
+We are going to clone the demo project, do a build with npm, and a cdk deploy
+```
+git clone https://github.com/fouri-io/skynet-cdk-demo.git
+cd skynet-cdk-demo
+npm install     // installs the needed node packages
+npm run build   // builds the project and makes corresponding js files from javascript
+cdk synth       // Synthesizes CDK artifacts -- Cloudformation
+cdk deploy      // Will run for a few mins and deploy all of your infrastructure
+```
+After all the installing is complete, you should see something like the following:
+SkynetCdkDemoStack: deploying...
+SkynetCdkDemoStack: creating CloudFormation changeset...
+[██████████████████████████████████████████████████████████] (41/41)
 
-"But I want to have something I can launch REALLY quickly, can't you just give it to me? Gimme, Gimme, Gimme"  Okay, okay, you paid your dues even though you act like a child, follow below to get this infrastructure launched with about fifteen minutes of work.
+You will also have some outputs giving you an http endpoint to hit:
+Go ahead and try out your new service:
+```
+http://<your output address here>:4000/ping         // You should receive 'pong' back
+http://<your output address here>:4000/initialize
+http://<your output address here>:4000/missions
+http://<your output address here>:4000/seedTargets  // Load targets into Dynamo
+http://<your output address here>:4000/targets      // Retrieve targets from Dynamo
+```
 
+WOW! Let's reflect on what is in place: VPC, subnets, Internet Gateways, NATS, security groups, a Fargate hosted Docker Container Node API with a Dynamo Table backing it, and all of it is plumbed together using best practices.
+
+Remember, AWS will charge you for resources, so when you are done playing with this, make sure to destroy Skynet before he becomes self-aware
+`cdk destroy`
 
 ### Other Resources
 - [AWS docs - Creating Fargate Service using CDK](https://docs.aws.amazon.com/cdk/latest/guide/ecs_example.html)
 - [AWS docs - Getting started with CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html)
+- [Installing AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-cmd)
+- [Installing AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_install)
+- [Skynet API Code](https://github.com/fouri-io/skynet)
+
 
 
