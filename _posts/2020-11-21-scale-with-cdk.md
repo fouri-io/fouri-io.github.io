@@ -1,6 +1,6 @@
 ---
 title: "Reducing Time to Market with AWS CDK"
-date: 2020-11-21T09:22:30-06:00
+date: 2020-12-30T09:22:30-06:00
 comments: true
 categories:
   - development
@@ -9,11 +9,10 @@ tags:
   - cdk
 ---
 
-//**************TODO**********//
-- Add explanation of constructs
-- Fix Profile Pic
+**Audience**: This article is intended for intermediate/advanced Cloud/DevOps practitioners. If you are beginner, you could still get some good info, but may be a tough read. I suggest checking out 'Other Resources' at the bottom.
 
 ![Photo by Kevin Ku on Unsplash](/assets/images/kevin-ku-aiyBwbrWWlo-unsplash-fouri.jpg)
+
 
 Times have certainly changed in software development over the past fifteen years. The days of filing IT tickets to provision a server, followed by waiting, waiting some more, and (you guessed it) waiting again are largely gone. Cloud computing and [containerization](https://www.docker.com/resources/what-container) have resulted in a pardigmn shift, sliding the Operational IT chips to the development side of the table --aka DevOps. Developers really are the new [Kingmakers](https://www.activestate.com/blog/developers-new-kingmakers/) by shaping reality to fit their narrative.
 
@@ -45,6 +44,7 @@ A good overview can be taken from the [AWS docs](https://aws.amazon.com/cdk/):
 > The AWS Cloud Development Kit (AWS CDK) is an open source software development framework to define your cloud application resources using familiar programming languages. Provisioning cloud applications can be a challenging process that requires you to perform manual actions, write custom scripts, maintain templates, or learn domain-specific languages. AWS CDK uses the familiarity and expressive power of programming languages for modeling your applications. It provides you with high-level components called constructs that preconfigure cloud resources with proven defaults, so you can build cloud applications without needing to be an expert. AWS CDK provisions your resources in a safe, repeatable manner through AWS CloudFormation. It also enables you to compose and share your own custom constructs that incorporate your organization's requirements, helping you start new projects faster.
 
 *"Great, great, but what does all that really mean to me?"* 
+Think of it this way, it will do all the CloudFormation work using an opinionated best practices DevOps approach with the ability to override.
 
 It is easiest to explain by outlining a real-world problem with CDK, flexing its power to solve all your problems (well maybe not all  --you are pretty screwed up). Let me present this common architecture pattern solving the following use-cases
 1. Launch a micro-service hosted in a container
@@ -57,7 +57,7 @@ Cool! We can do that, let me introduce you to CDK, the first dose is free, after
 
 Curtain call *Skynet* a fully available, replicated, isolated, container service that has a DynamoDB serving content. It happens to be a killing machine intent on destroying the human race, but let's look beyond that minor pitfall and appreciate all the other cool stuff!
 
-Humblebrag - I can provision this in X lines of code versus the Y lines it would take in CloudFormation. I can actually do it in even less with the very recent introduction of ECS Service Extenstions, but I will save that for another day/blog.
+Humblebrag - I can provision this in ~60 lines of code versus ~1100 lines it would take in CloudFormation. I can actually do it in even less with the very recent introduction of ECS Service Extenstions, but I will save that for another day/blog.
 
 ![Application Load Balanced Fargate Architecture](/assets/images/applicationloadbalancedfargate.png)
 
@@ -109,7 +109,8 @@ const table =  new dynamodb.Table(this, "SkynetTable", {
 table.grantReadWriteData(taskRole);
 ```
 
-"But I want to have something I can launch REALLY quickly, can't you just give it to me? Gimme, Gimme, Gimme"  Okay, okay, you paid your dues even though you act like a child, follow below to get this infrastructure launched with about five minutes of work.
+"But I want to have something I can launch REALLY quickly, can't you just give it to me? Gimme, Gimme, Gimme"  Okay, okay, you paid your dues, follow below to get this infrastructure launched with about five minutes of work.
+
 ### Try it on your own
 You need to have some prerequisites ready : AWS Account with infrastructure building permissions, AWS CLI, CDK, git (Check 'Other Resources' below for help getting these working)
 
@@ -139,8 +140,22 @@ http://<your output address here>:4000/targets      // Retrieve targets from Dyn
 
 WOW! Let's reflect on what is in place: VPC, subnets, Internet Gateways, NATS, security groups, a Fargate hosted Docker Container Node API with a Dynamo Table backing it, and all of it is plumbed together using best practices.
 
-Remember, AWS will charge you for resources, so when you are done playing with this, make sure to destroy Skynet before he becomes self-aware
+### Further Down the Rabbit Hole
+"That is a pretty cool demo, but would I want to host my own stuff."
+Since this is simply hosting a docker container, you can change a single line in CDK to change out the Skynet docker container for one of your own.  Simply change the line below pointing to your DockerHub hosted container and re-launch. You keep all the benefits listed above hosting your own containers. That is powerful!
+
+`image: ecs.ContainerImage.fromRegistry("fouri/skynet")`
+
+### Remember to Cleanup your Room
+Remember, AWS will charge you for resources, so when you are done playing with this, make sure to destroy Skynet before it becomes self-aware
 `cdk destroy`
+
+I hope you have gained some knowledge after all this. If not, well you get what you pay for :-) Drop a comment below if you have any suggestions for additional context or insight or if you just want to say Hi.
+
+>"That’s how it is with people. Nobody cares how it works as long as it works."
+--The Matrix
+
+
 
 ### Other Resources
 - [AWS docs - Creating Fargate Service using CDK](https://docs.aws.amazon.com/cdk/latest/guide/ecs_example.html)
