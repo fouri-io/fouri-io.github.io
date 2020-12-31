@@ -14,9 +14,9 @@ tags:
 ![Photo by Kevin Ku on Unsplash](/assets/images/kevin-ku-aiyBwbrWWlo-unsplash-fouri.jpg)
 
 
-Times have certainly changed in software development over the past fifteen years. The days of filing IT tickets to provision a server, followed by waiting, waiting some more, and (you guessed it) waiting again are largely gone. Cloud computing and [containerization](https://www.docker.com/resources/what-container) have resulted in a pardigmn shift, sliding the Operational IT chips to the development side of the table --aka DevOps. Developers really are the new [Kingmakers](https://www.activestate.com/blog/developers-new-kingmakers/) by shaping reality to fit their narrative.
+Times have certainly changed in software development over the past fifteen years. The days of filing IT tickets to provision a server, followed by waiting, waiting some more, and (you guessed it) waiting again are largely gone. Cloud computing and [containerization](https://www.docker.com/resources/what-container) have resulted in a paradigm shift, sliding the Operational IT chips to the development side of the table --aka DevOps. Developers really are the new [Kingmakers](https://www.activestate.com/blog/developers-new-kingmakers/) by shaping reality to fit their narrative.
 
-With this great power comes great responsiblity and thankfully AWS is there to help. The AWS console will allow users to rapidly provision servers, databases, apis, and much more. When moving beyond the proof-of-concept phase, challenges with console administration quickly emerge. Consider the following:
+With this great power comes great responsibility and thankfully AWS is there to help. The AWS console will allow users to rapidly provision servers, databases, apis, and much more. When moving beyond the proof-of-concept phase, challenges with console administration quickly emerge. Consider the following:
 1. What happens if I need to replicate this configuration?
 2. How do I build UAT (gamma) or Dev (beta) environments?
 3. How do I track infrastructure changes --i.e. version my infrastructure?
@@ -37,11 +37,11 @@ Just when you have tweaked your 5000 line CloudFormation masterpiece, AWS Cloud 
 
 *"I am good with CloudFormation, why should I switch? Besides it works."* 
 
-My answer is simple: assembly language works, some people are good at it, but there are faster/easier ways to build software, and unlike you Oh-Contrarion-Complainy-One, the world values time-to-market and maintainability. In fact, Cloudformation is an output of CDK, just like assemby is to Java or C. Now that I have convinced you...Let's talk CDK.
+My answer is simple: assembly language works, some people are good at it, but there are faster/easier ways to build software, and unlike you Oh-Contrarion-Complainy-One, the world values time-to-market and maintainability. In fact, CloudFormation is an output of CDK, just like assembly is to Java or C. Now that I have convinced you...Let's talk CDK.
 
 ### Take the Red Pill - CDK
 A good overview can be taken from the [AWS docs](https://aws.amazon.com/cdk/): 
-> The AWS Cloud Development Kit (AWS CDK) is an open source software development framework to define your cloud application resources using familiar programming languages. Provisioning cloud applications can be a challenging process that requires you to perform manual actions, write custom scripts, maintain templates, or learn domain-specific languages. AWS CDK uses the familiarity and expressive power of programming languages for modeling your applications. It provides you with high-level components called constructs that preconfigure cloud resources with proven defaults, so you can build cloud applications without needing to be an expert. AWS CDK provisions your resources in a safe, repeatable manner through AWS CloudFormation. It also enables you to compose and share your own custom constructs that incorporate your organization's requirements, helping you start new projects faster.
+> The AWS Cloud Development Kit (AWS CDK) is an open source software development framework to define your cloud application resources using familiar programming languages. Provisioning cloud applications can be a challenging process that requires you to perform manual actions, write custom scripts, maintain templates, or learn domain-specific languages. AWS CDK uses the familiarity and expressive power of programming languages for modeling your applications. It provides you with high-level components called constructs that pre-configure cloud resources with proven defaults, so you can build cloud applications without needing to be an expert. AWS CDK provisions your resources in a safe, repeatable manner through AWS CloudFormation. It also enables you to compose and share your own custom constructs that incorporate your organization's requirements, helping you start new projects faster.
 
 *"Great, great, but what does all that really mean to me?"* 
 Think of it this way, it will do all the CloudFormation work using an opinionated best practices DevOps approach with the ability to override.
@@ -57,7 +57,7 @@ Cool! We can do that, let me introduce you to CDK, the first dose is free, after
 
 Curtain call *Skynet* a fully available, replicated, isolated, container service that has a DynamoDB serving content. It happens to be a killing machine intent on destroying the human race, but let's look beyond that minor pitfall and appreciate all the other cool stuff!
 
-Humblebrag - I can provision this in ~60 lines of code versus ~1100 lines it would take in CloudFormation. I can actually do it in even less with the very recent introduction of ECS Service Extenstions, but I will save that for another day/blog.
+Humblebrag - I can provision this in ~60 lines of code versus ~1100 lines it would take in CloudFormation. I can actually do it in even less with the very recent introduction of ECS Service Extensions, but I will save that for another day/blog.
 
 ![Application Load Balanced Fargate Architecture](/assets/images/applicationloadbalancedfargate.png)
 
