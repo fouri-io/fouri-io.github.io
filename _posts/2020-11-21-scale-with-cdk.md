@@ -51,7 +51,7 @@ Think of it this way, it will do all the CloudFormation work using an opinionate
 It is easiest to explain by outlining a real-world problem with CDK, flexing its power to solve all your problems (well maybe not all  --you are pretty screwed up). Let me present this common architecture pattern solving the following use-cases
 1. Launch a micro-service hosted in a container
 2. I would like it to be serverless -- i.e. I don't want to manage servers
-3. I want to control traffic by isolating my service from the public internet -- i.e. Private VPN
+3. I want to control traffic by isolating my service from the public internet -- i.e. Private VPC
 4. I need my service to be available even if an outage happens in a Data Center -- i.e. Separate Availability Zones
 5. I need all the goodness. What is this project management triangle you speak of? I want it perfect, I want it now, and I want it cheap --aka Manager Requirements -- *Disclosure: I am a manager so I can say that :-)*
 
