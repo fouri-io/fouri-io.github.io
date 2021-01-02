@@ -67,7 +67,7 @@ plugins:
 
 author:
   name   : "Colby Ward"
-  avatar : "/assets/images/prof-1-cropped.png"
+  avatar : "/assets/images/prof-1-small.jpg"
   bio    : " Software Development Manager<br/>Amazon<br/><span>I work at Amazon, but this is my own opinion.</span>"
   links:
     - label: "Twitter"
